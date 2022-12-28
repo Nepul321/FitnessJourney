@@ -10,4 +10,5 @@ class Post(models.Model):
     day = models.IntegerField(validators=[MinValueValidator(1)])
     description = models.TextField()
     date = models.DateField(auto_now_add=True)
+    is_private = models.BooleanField(default=False)
     datetime = models.DateTimeField(auto_now_add=True)
