@@ -80,6 +80,8 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'base.CustomUser'
+
 WSGI_APPLICATION = 'src.wsgi.application'
 
 
