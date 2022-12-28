@@ -6,7 +6,7 @@ User = settings.AUTH_USER_MODEL
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="")
+    image = models.ImageField(upload_to="media/posts/images/%Y/%m/%d/%H/%M")
     day = models.IntegerField(validators=[MinValueValidator(1)])
     description = models.TextField()
     date = models.DateField(auto_now_add=True)
