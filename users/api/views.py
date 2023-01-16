@@ -62,3 +62,21 @@ def UserLoginView(request, *args, **kwargs):
     }
 
     return response
+
+@api_view(['GET', 'PUT'])
+@login_required
+def UserAccountView(request, *args, **kwargs):
+    auth = request.headers['Authorization']
+    token = auth.replace("Bearer ", "")
+    payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+
+    user = User.objects.filter(id=payload['id']).first()
+    if request.method == "PUT":
+        serializer = UserSerializer(instance=user, data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data, status=200)
+
+    serializer = UserSerializer(user)
+
+    return Response(serializer.data, status=200)
