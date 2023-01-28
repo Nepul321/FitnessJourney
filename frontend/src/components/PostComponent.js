@@ -3,6 +3,8 @@ import React from "react";
 function Post(props) {
    const {post} = props;
 
+   console.log(post)
+
    return (
     <div className="post mb-4">
         <p>Day : {post.day}</p>
