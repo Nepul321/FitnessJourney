@@ -1,8 +1,8 @@
 from django.urls import path
 from .views import (
-    ALLPOSTSVIEW
+    NEWESTPOSTSVIEW
 )
 
 urlpatterns = [
-    path('', ALLPOSTSVIEW, name="all-posts")
+    path('', NEWESTPOSTSVIEW, name="all-posts")
 ]

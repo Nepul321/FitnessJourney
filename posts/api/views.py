@@ -4,8 +4,8 @@ from .serializers import PostSerializer
 from ..models import Post
 
 @api_view(['GET'])
-def ALLPOSTSVIEW(request, *args, **kwargs):
-    qs = Post.objects.all()
+def NEWESTPOSTSVIEW(request, *args, **kwargs):
+    qs = Post.objects.filter(is_private=False)
     serializer = PostSerializer(qs, many=True)
     data = serializer.data
     return Response(data, status=200)
