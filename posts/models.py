@@ -12,3 +12,6 @@ class Post(models.Model):
     date = models.DateField(auto_now_add=True)
     is_private = models.BooleanField(default=False)
     datetime = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-datetime', ]
