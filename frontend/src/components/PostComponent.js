@@ -2,10 +2,12 @@ import React from "react";
 
 function Post(props) {
    const {post} = props;
-   
+
    return (
-    <div className="post">
-        <p>a post</p>
+    <div className="post mb-4">
+        <p>Day : {post.day}</p>
+        <p>Description : {post.description}</p>
+        <p>Date : {post.date}</p>
     </div>
    )
 }
