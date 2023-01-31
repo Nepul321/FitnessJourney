@@ -15,6 +15,7 @@ function Post(props) {
           <h5 className="card-title">Day : {post.day}</h5>
           <p className="card-text">{post.date}</p>
           <p className="card-text">@{post.user.username}</p>
+          <a href="/" className="btn btn-outline-primary">View</a>
           {/* <div className="btn-group">
             <a href="" className="btn btn-outline-primary">View</a>
             <a href="" className="btn btn-outline-secondary">Edit</a>
