@@ -13,7 +13,6 @@ function Post(props) {
       <div className="col-md-8">
         <div className="card-body">
           <h5 className="card-title">Day : {post.day}</h5>
-          <p className="card-text">{post.description}</p>
           <p className="card-text">{post.date}</p>
           <p className="card-text">@{post.user.username}</p>
           {/* <div className="btn-group">
