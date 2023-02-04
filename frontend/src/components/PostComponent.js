@@ -14,6 +14,7 @@ function Post(props) {
         <div className="card-body">
           <h5 className="card-title">Day : {post.day}</h5>
           <p className="card-text">{post.date}</p>
+          <p className="card-text">Views - {post.view_count}</p>
           <p className="card-text">@{post.user.username}</p>
           <a href="/" className="btn btn-outline-primary">View</a>
           {/* <div className="btn-group">
