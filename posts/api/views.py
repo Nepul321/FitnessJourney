@@ -46,6 +46,8 @@ def PostView(request, id,  *args, **kwargs):
         if obj.user != user:
             return Response({"detail" : "You can't view this post"}, status=403)
     
+    obj.set_view_count()
+    
     serializer = PostSerializer(obj)
     data = serializer.data
 
