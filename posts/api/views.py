@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import PostSerializer
 from django.contrib.auth import get_user_model
-from ..models import Post
+from ..models import Post, PostView
 from django.db.models import Q
 import jwt
 
@@ -39,6 +39,12 @@ def PostView(request, id,  *args, **kwargs):
      if token:
         payload = jwt.decode(token, 'secret', algorithms=['HS256'])
         user = User.objects.filter(id=payload['id']).first()
+        view = PostView.objects.create(
+            user=user
+        )
+        view.save()
+        obj.views.add(view)
+        obj.set_view_count()
     except jwt.ExpiredSignatureError:
         pass
 
