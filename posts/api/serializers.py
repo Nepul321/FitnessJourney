@@ -2,10 +2,10 @@ from rest_framework import serializers
 from ..models import (
     Post
 )
-from base.api.serializers import UserSerializer
+from base.api.serializers import UserPublicSerializer
 
 class PostSerializer(serializers.ModelSerializer):
-    user = UserSerializer(read_only=True)
+    user = UserPublicSerializer(read_only=True)
     likes = serializers.SerializerMethodField(read_only=True)
     dislikes = serializers.SerializerMethodField(read_only=True)
 
