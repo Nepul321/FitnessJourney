@@ -12,6 +12,8 @@ class Post(models.Model):
     date = models.DateField(auto_now_add=True)
     is_private = models.BooleanField(default=False)
     datetime = models.DateTimeField(auto_now_add=True)
-
+    likes = models.ManyToManyField(User, related_name="video_post_likes", blank=True)
+    dislikes = models.ManyToManyField(User, related_name="video_posts_dislikes", blank=True)
+    
     class Meta:
         ordering = ['-datetime', ]
