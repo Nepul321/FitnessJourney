@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import  MinValueValidator
 from django.conf import settings
+from comments.models import Comment
 
 User = settings.AUTH_USER_MODEL
 
@@ -23,6 +24,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name="video_post_likes", blank=True)
     dislikes = models.ManyToManyField(User, related_name="video_posts_dislikes", blank=True)
     views = models.ManyToManyField(PostView, related_name="video_post_views", blank=True)
+    comments = models.ManyToManyField(Comment, related_name="blog_post_comments", blank=True)
     view_count = models.IntegerField(default=0)
 
     class Meta:
