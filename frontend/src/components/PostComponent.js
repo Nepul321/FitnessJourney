@@ -16,7 +16,7 @@ function Post(props) {
           <p className="card-text">{post.date}</p>
           <p className="card-text">Views - {post.view_count}</p>
           <p className="card-text">@{post.user.username}</p>
-          <a href="/" className="btn btn-outline-primary">View</a>
+          <a href={`/posts/${post.id}`} className="btn btn-outline-primary">View</a>
           {/* <div className="btn-group">
             <a href="" className="btn btn-outline-primary">View</a>
             <a href="" className="btn btn-outline-secondary">Edit</a>
