@@ -21,7 +21,7 @@ def NEWESTPOSTSVIEW(request, *args, **kwargs):
     data = serializer.data
     return Response(data, status=200)
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def PostView(request, id,  *args, **kwargs):
     qs = Post.objects.filter(id=id)
     if not qs:

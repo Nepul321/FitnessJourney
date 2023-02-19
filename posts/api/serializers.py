@@ -5,6 +5,8 @@ from ..models import (
 from base.api.serializers import UserPublicSerializer
 from comments.api.serializers import CommentSerializer
 
+POST_VALIDATE = ['like', 'dislike']
+
 class PostSerializer(serializers.ModelSerializer):
     user = UserPublicSerializer(read_only=True)
     likes = serializers.SerializerMethodField(read_only=True)
@@ -28,4 +30,11 @@ class PostSerializer(serializers.ModelSerializer):
         serializer = CommentSerializer(qs, many=True)
         return serializer.data
 
-    
+
+class PostActionSerializer(serializers.Serializer):
+    action = serializers.CharField()
+    def validate_action(self, value):
+        value = value.lower().strip()
+        if value not in POST_VALIDATE:
+            raise serializers.ValidationError("This is not a valid action")
+        return value 
